@@ -3,15 +3,19 @@
 // ============================================================================
 
 export const ROUTES = {
+  // Root gate
+  ROOT: "/",
+
   // Public routes (no auth required)
   WAITLIST: "/waitlist",
   LOGIN: "/login",
 
-  // Authenticated routes
-  ROOT: "/",
-  APP: "/app",
+  // Protected routes (auth required)
+  HOME: "/home",
+  EXPLORE: "/explore",
+  PROFILE: "/profile",
 
-  // Admin-only routes
+  // Admin routes (admin role required)
   ADMIN: "/admin",
 } as const;
 
@@ -26,12 +30,10 @@ export const PUBLIC_ROUTES: readonly string[] = [
   ROUTES.LOGIN,
 ] as const;
 
-export const AUTH_ROUTES: readonly string[] = [
-  ROUTES.ROOT,
-  ROUTES.APP,
-] as const;
-
-export const ADMIN_ROUTES: readonly string[] = [
+export const PROTECTED_ROUTES: readonly string[] = [
+  ROUTES.HOME,
+  ROUTES.EXPLORE,
+  ROUTES.PROFILE,
   ROUTES.ADMIN,
 ] as const;
 
@@ -43,6 +45,10 @@ export function isPublicRoute(pathname: string): boolean {
   return PUBLIC_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
 }
 
+export function isProtectedRoute(pathname: string): boolean {
+  return PROTECTED_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+}
+
 export function isAdminRoute(pathname: string): boolean {
-  return ADMIN_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+  return pathname === ROUTES.ADMIN || pathname.startsWith(`${ROUTES.ADMIN}/`);
 }

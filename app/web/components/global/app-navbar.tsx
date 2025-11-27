@@ -53,7 +53,7 @@ export function AppNavbar(): ReactElement {
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4">
         {/* Brand */}
         <Link
-          href={ROUTES.APP}
+          href={ROUTES.HOME}
           className="text-lg font-semibold text-foreground"
         >
           {en.navBrand}
@@ -62,22 +62,22 @@ export function AppNavbar(): ReactElement {
         {/* Navigation Links */}
         <div className="flex items-center gap-1">
           <NavLink
-            href={ROUTES.APP}
+            href={ROUTES.HOME}
             icon={Home}
             label={en.navHome}
-            isActive={pathname === ROUTES.APP}
+            isActive={pathname === ROUTES.HOME}
           />
           <NavLink
-            href={`${ROUTES.APP}/explore`}
+            href={ROUTES.EXPLORE}
             icon={Compass}
             label={en.navExplore}
-            isActive={pathname.startsWith(`${ROUTES.APP}/explore`)}
+            isActive={pathname.startsWith(ROUTES.EXPLORE)}
           />
           <NavLink
-            href={`${ROUTES.APP}/profile`}
+            href={ROUTES.PROFILE}
             icon={User}
             label={en.navProfile}
-            isActive={pathname.startsWith(`${ROUTES.APP}/profile`)}
+            isActive={pathname.startsWith(ROUTES.PROFILE)}
           />
           {isAdmin && (
             <NavLink

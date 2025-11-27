@@ -30,15 +30,15 @@ export function useAuthRedirect(): { isLoading: boolean } {
       return;
     }
 
-    // Authenticated user on public route → send to app
-    if (isAuthenticated && isPublicRoute(pathname)) {
-      router.replace(ROUTES.APP);
+    // Authenticated user on public route or root → send to home
+    if (isAuthenticated && (isPublicRoute(pathname) || pathname === ROUTES.ROOT)) {
+      router.replace(ROUTES.HOME);
       return;
     }
 
     // Admin route protection - non-admin users get redirected
     if (isAdminRoute(pathname) && user?.role !== AuthRole.ADMIN) {
-      router.replace(ROUTES.APP);
+      router.replace(ROUTES.HOME);
       return;
     }
   }, [user, isLoading, pathname, router]);
