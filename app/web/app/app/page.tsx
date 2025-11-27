@@ -1,35 +1,14 @@
 "use client";
 
-import { useEffect, type ReactElement } from "react";
-import { useRouter } from "next/navigation";
-import { Button } from "@web/components/ui/button";
-import { signOut } from "@thirdplace/shared/services/auth";
-import { AuthRole } from "@thirdplace/shared/types";
+import type { ReactElement } from "react";
+import { AppNavbar } from "@web/components/global/app-navbar";
+import { useAuthUser } from "@web/hooks/use-auth";
 import { en } from "@thirdplace/shared/i18n/en";
-import { useAuthUser, useInvalidateAuth } from "@web/hooks/use-auth";
 
-export default function AdminDashboard(): ReactElement {
-  const router = useRouter();
+export default function AppHomePage(): ReactElement {
   const { data: user, isLoading } = useAuthUser();
-  const invalidateAuth = useInvalidateAuth();
 
-  useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-
-    if (user === null || user === undefined || user.role !== AuthRole.ADMIN) {
-      router.replace("/");
-    }
-  }, [isLoading, user, router]);
-
-  async function handleSignOut(): Promise<void> {
-    await signOut();
-    await invalidateAuth();
-    router.replace("/");
-  }
-
-  if (isLoading || user === null || user === undefined) {
+  if (isLoading) {
     return (
       <main className="flex min-h-screen items-center justify-center">
         <p className="text-muted-foreground">{en.commonLoading}</p>
@@ -38,26 +17,18 @@ export default function AdminDashboard(): ReactElement {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <header className="border-b">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <h1 className="text-xl font-semibold">{en.adminDashboardTitle}</h1>
-          <Button
-            variant="outline"
-            onClick={(): void => {
-              void handleSignOut();
-            }}
-          >
-            {en.authLogout}
-          </Button>
+    <>
+      <AppNavbar />
+      <main className="min-h-screen pt-16">
+        <div className="mx-auto max-w-6xl px-4 py-8">
+          <h1 className="mb-4 text-2xl font-bold">
+            {en.adminDashboardWelcome}, {user?.email}
+          </h1>
+          <p className="text-muted-foreground">
+            Your personalized spots will appear here.
+          </p>
         </div>
-      </header>
-
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <p className="text-muted-foreground">
-          {en.adminDashboardWelcome}, {user.email}
-        </p>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

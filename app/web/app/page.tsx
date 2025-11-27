@@ -1,40 +1,14 @@
 "use client";
 
-import { useEffect, type ReactElement } from "react";
-import { useRouter } from "next/navigation";
-import { Navbar } from "@web/components/marketing/navbar";
-import { Hero } from "@web/components/marketing/hero";
-import { ProblemSection } from "@web/components/marketing/problem-section";
-import { HowItWorks } from "@web/components/marketing/how-it-works";
-import { FeaturesGrid } from "@web/components/marketing/features-grid";
-import { FinalCta } from "@web/components/marketing/final-cta";
-import { Footer } from "@web/components/marketing/footer";
-import { useAuthUser } from "@web/hooks/use-auth";
-import { AuthRole } from "@thirdplace/shared/types";
+import type { ReactElement } from "react";
+import { en } from "@thirdplace/shared/i18n/en";
 
-export default function LandingPage(): ReactElement {
-  const router = useRouter();
-  const { data: user, isLoading } = useAuthUser();
-
-  useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-
-    if (user !== null && user !== undefined && user.role === AuthRole.ADMIN) {
-      router.replace("/app");
-    }
-  }, [isLoading, user, router]);
-
+export default function RootPage(): ReactElement {
+  // Auth redirect is handled by useAuthRedirect in layout
+  // This page is shown briefly while redirecting
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <ProblemSection />
-      <HowItWorks />
-      <FeaturesGrid />
-      <FinalCta />
-      <Footer />
+    <main className="flex min-h-screen items-center justify-center">
+      <p className="text-muted-foreground">{en.commonLoading}</p>
     </main>
   );
 }

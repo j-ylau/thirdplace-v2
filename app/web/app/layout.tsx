@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
-import { QueryProvider } from "@web/components/providers/query-provider";
+import { Providers } from "@web/components/providers/query-provider";
+import { AuthRedirectWrapper } from "@web/components/providers/auth-redirect-wrapper";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,9 +27,11 @@ export default function RootLayout({
   children: ReactNode;
 }>): ReactNode {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
-        <QueryProvider>{children}</QueryProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <Providers>
+          <AuthRedirectWrapper>{children}</AuthRedirectWrapper>
+        </Providers>
       </body>
     </html>
   );
