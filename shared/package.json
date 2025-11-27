@@ -1,0 +1,31 @@
+{
+  "name": "@thirdplace/shared",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    "./types": "./src/types.ts",
+    "./constants": "./src/constants.ts",
+    "./error": "./src/error.ts",
+    "./validation": "./src/validation.ts",
+    "./services": "./src/services.ts",
+    "./utils": "./src/utils.ts",
+    "./logger": "./src/logger.ts",
+    "./analytics": "./src/analytics.ts",
+    "./theme": "./src/theme.ts",
+    "./i18n/en": "./src/i18n/en.ts",
+    "./env": "./src/env.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.47.10",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
+  }
+}

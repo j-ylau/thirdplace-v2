@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    /* -------------------------------------------------------------
+     * CORE STRICTNESS
+     * ------------------------------------------------------------- */
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "alwaysStrict": true,
+
+    /* -------------------------------------------------------------
+     * FAIL-FAST SETTINGS
+     * ------------------------------------------------------------- */
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noErrorTruncation": true,
+
+    /* -------------------------------------------------------------
+     * TYPE SAFETY (ABSOLUTELY NO AMBIGUITY)
+     * ------------------------------------------------------------- */
+    "useUnknownInCatchVariables": true,
+
+    /* -------------------------------------------------------------
+     * MODULE + RESOLUTION SAFETY
+     * ------------------------------------------------------------- */
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* -------------------------------------------------------------
+     * EMIT + BUILD
+     * ------------------------------------------------------------- */
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+
+    /* -------------------------------------------------------------
+     * LIBS PER ENVIRONMENT
+     * ------------------------------------------------------------- */
+    "lib": ["ES2022", "DOM", "DOM.Iterable"]
+  },
+
+  "exclude": ["node_modules", "dist", "build", ".next"]
+}

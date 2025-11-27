@@ -1,0 +1,29 @@
+#!/bin/sh
+
+echo "Running pre-commit checks..."
+
+# Run lint
+echo "Running lint..."
+pnpm lint
+if [ $? -ne 0 ]; then
+  echo "Lint failed. Please fix the errors and try again."
+  exit 1
+fi
+
+# Run typecheck
+echo "Running typecheck..."
+pnpm typecheck
+if [ $? -ne 0 ]; then
+  echo "Typecheck failed. Please fix the errors and try again."
+  exit 1
+fi
+
+# Run build
+echo "Running build..."
+pnpm build
+if [ $? -ne 0 ]; then
+  echo "Build failed. Please fix the errors and try again."
+  exit 1
+fi
+
+echo "All pre-commit checks passed!"
