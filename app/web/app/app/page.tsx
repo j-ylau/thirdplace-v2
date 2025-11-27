@@ -3,7 +3,7 @@
 import { useEffect, type ReactElement } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@web/components/ui/button";
-import { signOut } from "@thirdplace/shared/services";
+import { signOut } from "@thirdplace/shared/services/auth";
 import { AuthRole } from "@thirdplace/shared/types";
 import { en } from "@thirdplace/shared/i18n/en";
 import { useAuthUser, useInvalidateAuth } from "@web/hooks/use-auth";

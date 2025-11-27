@@ -4,7 +4,7 @@ import { useState, useEffect, type ReactElement, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@web/components/ui/button";
 import { Input } from "@web/components/ui/input";
-import { signInWithMagicLink } from "@thirdplace/shared/services";
+import { signInWithMagicLink } from "@thirdplace/shared/services/auth";
 import { AuthStatus, AuthRole } from "@thirdplace/shared/types";
 import { en } from "@thirdplace/shared/i18n/en";
 import { useAuthUser } from "@web/hooks/use-auth";

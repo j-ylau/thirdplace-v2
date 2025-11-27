@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getCurrentAuthUser } from "@thirdplace/shared/services";
+import { getCurrentAuthUser } from "@thirdplace/shared/services/auth";
 import type { AuthUser } from "@thirdplace/shared/types";
 
 const AUTH_QUERY_KEY = ["auth", "user"] as const;
