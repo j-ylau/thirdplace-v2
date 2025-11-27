@@ -122,6 +122,16 @@ export const en = {
   // ============================================================================
   adminDashboardTitle: "Admin Dashboard",
   adminDashboardWelcome: "Welcome back",
+
+  // ============================================================================
+  // Global Navbar
+  // ============================================================================
+  navBrand: "ThirdPlace",
+  navHome: "Home",
+  navExplore: "Explore",
+  navProfile: "Profile",
+  navAdmin: "Admin",
+  navToggleTheme: "Toggle theme",
 } as const;
 
 export type TranslationKey = keyof typeof en;
