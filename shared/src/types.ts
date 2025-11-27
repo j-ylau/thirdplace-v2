@@ -25,6 +25,18 @@ export enum ApiResultStatus {
   FAILURE = "failure",
 }
 
+export enum AuthRole {
+  ADMIN = "admin",
+  USER = "user",
+}
+
+export enum AuthStatus {
+  IDLE = "idle",
+  LOADING = "loading",
+  SENT = "sent",
+  ERROR = "error",
+}
+
 // ============================================================================
 // Landing Page Types
 // ============================================================================
@@ -78,4 +90,14 @@ export interface WaitlistEntry {
 export interface WaitlistFormData {
   email: string;
   city: string;
+}
+
+// ============================================================================
+// Auth Types
+// ============================================================================
+
+export interface AuthUser {
+  id: string;
+  email: string;
+  role: AuthRole;
 }

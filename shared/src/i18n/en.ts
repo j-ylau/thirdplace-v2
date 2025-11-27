@@ -104,6 +104,24 @@ export const en = {
   errorInvalidEmail: "Please enter a valid email address",
   errorInvalidCity: "Please enter your city",
   errorWaitlistFailed: "Failed to join waitlist. Please try again.",
+
+  // ============================================================================
+  // Auth / Login
+  // ============================================================================
+  authLoginTitle: "Admin login",
+  authLoginSubtitle: "Enter your email to receive a magic link.",
+  authEmailPlaceholder: "you@email.com",
+  authSendMagicLink: "Send magic link",
+  authSending: "Sending...",
+  authCheckEmail: "Check your email for the magic link.",
+  authLoginFailed: "Something went wrong. Try again.",
+  authLogout: "Log out",
+
+  // ============================================================================
+  // Admin Dashboard
+  // ============================================================================
+  adminDashboardTitle: "Admin Dashboard",
+  adminDashboardWelcome: "Welcome back",
 } as const;
 
 export type TranslationKey = keyof typeof en;

@@ -7,7 +7,6 @@
     "lib": ["ES2022"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "baseUrl": ".",
     "paths": {
       "@thirdplace/shared/*": ["../shared/src/*"],
       "@backend/*": ["./src/*"]

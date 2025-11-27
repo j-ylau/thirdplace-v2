@@ -14,7 +14,6 @@
     "jsx": "preserve",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "baseUrl": ".",
     "paths": {
       "@thirdplace/shared/*": [
         "../../shared/src/*"
@@ -24,7 +23,8 @@
       ]
     },
     "allowJs": true,
-    "incremental": true
+    "incremental": true,
+    "esModuleInterop": true
   },
   "include": [
     "next-env.d.ts",
